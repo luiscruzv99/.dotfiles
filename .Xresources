@@ -1,0 +1,46 @@
+URxvt*transparent: true
+URxvt*blurRadius: 20
+
+! special
+*.foreground:   #586e75
+*.background:   #fdf6e3
+*.cursorColor:  #586e75
+
+! black
+*.color0:       #002b36
+*.color8:       #657b83
+
+! red
+*.color1:       #e53431
+*.color9:       #bb2b28
+
+! green
+*.color2:       #9cb400
+*.color10:      #6c7d00
+
+! yellow
+*.color3:       #d19e00
+*.color11:      #9c7600
+
+! blue
+*.color4:       #268bd2
+*.color12:      #1b6498
+
+! magenta
+*.color5:       #6c71c4
+*.color13:      #595da1
+
+! cyan
+*.color6:       #2aa198
+*.color14:      #5
+
+! white
+*.color7:       #93a1a1
+*.color15:      #586e75
+
+
+URxvt*keysym.Alt-Control-V : eval:paste_clipboard
+URxvt*keysym.Alt-Control-C: eval:selection_to_clipboard
+
+URxvt*font: xft:Source Code Pro:size=10
+URxvt*scrollBar:false
