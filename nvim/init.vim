@@ -26,10 +26,11 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'dylanaraps/wal.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 set background=light  " Fondo del tema: light o dark
-colorscheme PaperColor  " Nombre del tema
+colorscheme wal  " Nombre del tema
 
 

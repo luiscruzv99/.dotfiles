@@ -37,6 +37,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -106,10 +110,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4"
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -181,30 +185,29 @@ bindsym $mod+r mode "resize"
 #       status_command i3status
 #}
 
-
+exec --no-startup-id betterlockscreen -u ~/.dotfiles/.background
 #Camiamos el layout a español
 exec_always setxkbmap es
 
-#Ponemos el fondo de pantalla
-exec_always feh --bg-fill ~/.dotfiles/.background
-
 #Bloqueo de pantalla
-bindsym $mod+l exec i3lock
+bindsym $mod+l exec betterlockscreen -l blur
 
 #Programas a workspaces
 for_window [class="firefox"] move to workspace $ws2
+for_window [class="qutebrowser"] move to workspace $ws2
 for_window [class="Spotify"] move to workspace $ws10
-
+for_window [class="discord"] move to workspace $ws4
 #Quita las barras de titulo
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
 #Ponemos margen entre ventanas
-gaps outer 2
-gaps inner 5
-gaps top 21
+gaps outer 7
+gaps inner 7
+gaps top 23
 
 #Inicializa el compositor
-exec_always picom -f -D 1 -I 10 -O 10
-
+exec_always picom -f -m 1.0 -cCG -r 2 -o 0.45 -i 0.97 -D 10 -I 0.1 -O 0.1 -e 1 -b&
 #Lanzamos polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec wal -i ~/.dotfiles/.background

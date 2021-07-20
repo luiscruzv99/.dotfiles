@@ -2,7 +2,7 @@
 cd ~/.
 echo "INSTALANDO PAQUETES PREVIOS"
 sudo pacman -Syyu
-sudo pacman -S git neovim i3-gaps i3lock tmux rxvt-unicode rofi firefox feh ttf-font-awesome picom alsa pulseaudio
+sudo pacman -S git ranger neovim i3-gaps tmux rxvt-unicode rofi ttf-font-awesome picom alsa pulseaudio mpv
 
 #Instalacion de ly
 echo "INSTALANDO LY"
@@ -35,9 +35,9 @@ echo "INSTALANDO VIM.PLUG"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-#Instalando temas
-yay -S canta-gtk-theme-git
-sudo pacman -S lxappearance nautilus
+#Instalando utilidades
+yay -S pywal ranger grub-customizer betterlockscreen zazura zazura-pdf-poppler
+systemctl enable betterlockscreen@$USER
 
 #Poniendo bash bonita
 echo "CONFIGURANDO BASH"
