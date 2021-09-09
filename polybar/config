@@ -18,14 +18,14 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #ff090300
-background-alt = #fffdf6e3
+background = ${xrdb:color0:#222}
+background-alt = ${xrdb:color8:#222}
 ;foreground = ${xrdb:color7:#222}
-foreground = #f7f7f7
-foreground-alt = #657b83
-primary = #01a252
-secondary = #dc322f
-alert = #bd2c40
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
 
 [bar/workspace]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -60,10 +60,6 @@ modules-left = i3
 ;modules-center = date
 ;modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan temperature powermenu
 
-;tray-position = right
-;tray-padding = 2
-;tray-background = #0063ff
-
 ;wm-restack = bspwm
 ;wm-restack = i3
 
@@ -85,7 +81,6 @@ offset-x = 45%
 offset-y = 2px
 radius = 10
 fixed-center = true
-
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -97,7 +92,13 @@ font-3 = Font Awesome 5 Free Solid: pixelsize=10,1
 font-4 = Font Awesome 5 Brands Regular: pixelsize=10,1
 override-redirect = true
 
-modules-center = date
+padding-left = 5
+padding-right = 5
+modules-left = memory
+modules-right = cpu
+tray-position = center
+tray-padding = 10
+tray-background = ${colors.background}
 
 [bar/tray]
 width = 31%
@@ -107,7 +108,7 @@ offset-y = 2px
 radius = 10
 fixed-center = true
 
-padding-right = 3
+padding-right = 5
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -119,8 +120,8 @@ font-2 = siji:pixelsize=10;1
 font-3 = Font Awesome 5 Free Solid: pixelsize=10,1
 override-redirect = true
 
-;modules-center = date
-modules-right = filesystem pulseaudio cpu wlan xbacklight-acpi battery temperature powermenu
+
+modules-right = filesystem pulseaudio temperature powermenu date
 separator = "|"
 separator-padding = 2
 separator-foreground = ${colors.foreground-alt}
@@ -325,14 +326,14 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <bar-volume><label-volume> 
-label-volume = %percentage%% 
+format-volume = <bar-volume> <label-volume> 
+label-volume =  %percentage%  
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 5
+bar-volume-width = 15
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -340,12 +341,12 @@ bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-gradient = true
+bar-volume-indicator =
+bar-volume-indicator-font = 3
+bar-volume-fill = █
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = ━ 
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -412,7 +413,7 @@ animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
+thermal-zone = 2
 warn-temperature = 60
 
 format = <ramp> <label>
@@ -473,7 +474,7 @@ compositing-background = picom
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-pseudo-transparency = true
+;pseudo-transparency = true
 
 [global/wm]
 margin-top = 5

@@ -1,5 +1,5 @@
-URxvt*transparent: true
-URxvt*blurRadius: 20
+!Uxvt*transparent: true
+!URxvt*blurRadius: 20
 
 ! special
 *.foreground:   #586e75
@@ -42,5 +42,5 @@ URxvt*blurRadius: 20
 URxvt*keysym.Alt-Control-V : eval:paste_clipboard
 URxvt*keysym.Alt-Control-C: eval:selection_to_clipboard
 
-URxvt*font: xft:Source Code Pro:size=10
+URxvt*font: xft:Source Code Pro:size=10,xft:Noto Color Emoji:size=10, xft:Symbola:size=10 
 URxvt*scrollBar:false
