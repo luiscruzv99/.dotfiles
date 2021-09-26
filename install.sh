@@ -52,7 +52,7 @@ ln -sv ~/.dotfiles/.Xresources ~
 mkdir ~/.config/i3
 ln -sv ~/.dotfiles/i3/config ~/.config/i3/
 mkdir ~/.config/nvim
-ln -sv ~/.dotfiles/nvim/init.vim ~/.config/nvim/
+ln -sv ~/.dotfiles/nvim/ ~/.config/nvim/
 mkdir ~/.config/polybar
 ln -sv ~/.dotfiles/polybar/config ~/.config/polybar/
 ln -sv ~/.dotfiles/polybar/launch.sh ~/.config/polybar/

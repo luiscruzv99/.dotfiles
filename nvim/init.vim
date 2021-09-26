@@ -22,28 +22,43 @@ set spelllang=en,es  " Corregir palabras usando diccionarios en inglés y españ
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   " Declare the list of plugins.
-  Plug 'tpope/vim-sensible'
-  Plug 'junegunn/seoul256.vim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'hoob3rt/lualine.nvim'
   Plug 'NLKNguyen/papercolor-theme'
-  Plug 'dylanaraps/wal.vim'
-  Plug 'mhartington/oceanic-next'
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }
   " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-if(has("termguicolors"))
-  set termguicolors
-endif
+"if(has("termguicolors"))
+ " set termguicolors
+"endif
 
-set background=light  " Fondo del tema: light o dark
+lua require('lsp-config')
+
+set completeopt=menuone,noinsert,noselect
+
 syntax enable
-colorscheme OceanicNext " Nombre del tema
+set background=light
+colorscheme PaperColor " Nombre del tema
 set cursorline
+highlight Cursor guifg=black guibg=white
 hi CursorLine cterm=italic
 set wildmenu
-set wildmode=list:longest
+set wildmode=longest:list,full
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+autocmd BufEnter * lua require'completion'.on_attach()
+
 nnoremap <F7> :w <Enter>
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 autocmd Filetype sd nnoremap <F8> :w !python test.py % > out.html && wkhtmltopdf --enable-local-file-access -O "Landscape" -s A5 -B 1 -T 3 -L 1 -R 3 out.html out.pdf <Enter>
 autocmd Filetype ms nnoremap <F8> :!groff -ms % -T pdf -k > out.pdf <Enter>
 autocmd Filetype c nnoremap <F8> :w !make <Enter>
