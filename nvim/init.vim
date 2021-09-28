@@ -30,14 +30,29 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'hoob3rt/lualine.nvim'
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'sonph/onehalf', { 'rtp': 'vim' }
+  Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
+  Plug 'godlygeek/tabular'
+  Plug 'elzr/vim-json'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
   " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "if(has("termguicolors"))
  " set termguicolors
 "endif
+execute 'source ~/.config/nvim/nvim-tree.vim'
 
+lua require('nvim-tree-setup')
 lua require('lsp-config')
+
+
 
 set completeopt=menuone,noinsert,noselect
 
@@ -65,3 +80,35 @@ autocmd Filetype c nnoremap <F8> :w !make <Enter>
 
 autocmd ColorScheme PaperColor highlight Normal ctermbg=NONE guibg=NONE
 
+
+let g:UltiSnipsExpandTrigger="<Tab>"  " use <Tab> to trigger autocompletion
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<C-J>"
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+nnoremap <C-l> :Goyo<CR>
+
+" disable header folding
+let g:vim_markdown_folding_disabled = 1
+
+" do not use conceal feature, the implementation is not so good
+let g:vim_markdown_conceal = 0
+
+" disable math tex conceal feature
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
+" support front matter of various format
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
+let g:mkdp_auto_close = 0
+
+nnoremap <M-m> :MarkdownPreview<CR>
+
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
