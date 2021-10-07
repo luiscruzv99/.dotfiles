@@ -1,46 +1,46 @@
-!Uxvt*transparent: true
-!URxvt*blurRadius: 20
+Uxvt*transparent: true
+URxvt*blurRadius: 20
 
 ! special
-*.foreground:   #586e75
-*.background:   #fdf6e3
-*.cursorColor:  #586e75
+*.foreground:   #c7ccd1
+*.background:   #1c2023
+*.cursorColor:  #c7ccd1
 
 ! black
-*.color0:       #002b36
-*.color8:       #657b83
+*.color0:       #1c2023
+*.color8:       #747c84
 
 ! red
-*.color1:       #e53431
-*.color9:       #bb2b28
+*.color1:       #c7ae95
+*.color9:       #c7ae95
 
 ! green
-*.color2:       #9cb400
-*.color10:      #6c7d00
+*.color2:       #95c7ae
+*.color10:      #95c7ae
 
 ! yellow
-*.color3:       #d19e00
-*.color11:      #9c7600
+*.color3:       #aec795
+*.color11:      #aec795
 
 ! blue
-*.color4:       #268bd2
-*.color12:      #1b6498
+*.color4:       #ae95c7
+*.color12:      #ae95c7
 
 ! magenta
-*.color5:       #6c71c4
-*.color13:      #595da1
+*.color5:       #c795ae
+*.color13:      #c795ae
 
 ! cyan
-*.color6:       #2aa198
-*.color14:      #5
+*.color6:       #95aec7
+*.color14:      #95aec7
 
 ! white
-*.color7:       #93a1a1
-*.color15:      #586e75
+*.color7:       #c7ccd1
+*.color15:      #f3f4f5
 
 
 URxvt*keysym.Alt-Control-V : eval:paste_clipboard
 URxvt*keysym.Alt-Control-C: eval:selection_to_clipboard
 
-URxvt*font: xft:Source Code Pro:size=10,xft:Noto Color Emoji:size=10, xft:Symbola:size=10 
+URxvt*font: xft:Hack Nerd Font:size=11, xft:Source Code Pro:size=11,xft:Noto Color Emoji:size=11, xft:Symbola:size=11, xft:FontAwesome:size=11
 URxvt*scrollBar:false

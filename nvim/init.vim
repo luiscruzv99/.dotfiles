@@ -41,6 +41,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'vim-pandoc/vim-pandoc-syntax'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+  Plug 'chriskempson/base16-vim'
   " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -57,8 +58,7 @@ lua require('lsp-config')
 set completeopt=menuone,noinsert,noselect
 
 syntax enable
-set background=light
-colorscheme PaperColor " Nombre del tema
+colorscheme base16-ashes " Nombre del tema
 set cursorline
 highlight Cursor guifg=black guibg=white
 hi CursorLine cterm=italic
@@ -74,7 +74,7 @@ inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
 nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-autocmd Filetype sd nnoremap <F8> :w !python test.py % > out.html && wkhtmltopdf --enable-local-file-access -O "Landscape" -s A5 -B 1 -T 3 -L 1 -R 3 out.html out.pdf <Enter>
+autocmd Filetype sd nnoremap <F8> :w !python compile.py % > out.html && wkhtmltopdf --enable-local-file-access -O "Landscape" -s A5 -B 1 -T 3 -L 1 -R 3 out.html out.pdf <CR>
 autocmd Filetype ms nnoremap <F8> :!groff -ms % -T pdf -k > out.pdf <Enter>
 autocmd Filetype c nnoremap <F8> :w !make <Enter>
 

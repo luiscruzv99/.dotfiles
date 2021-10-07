@@ -48,7 +48,7 @@ if (not status) then return end
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'papercolor_light',
+    theme = "everforest",
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
