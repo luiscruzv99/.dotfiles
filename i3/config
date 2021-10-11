@@ -47,8 +47,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
+bindsym $mod+Return "exec urxvt -depth 32 -bg rgba:3f00/3f00/3f00/dddd"
 # kill focused window
 bindsym $mod+c kill
 
@@ -212,6 +211,6 @@ exec_always picom -f -D 10 -I 0.1 -O 0.1  -b&
 #Lanzamos polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec feh --bg-scale ~/Imágenes/Agony.jpg 
+exec feh --bg-scale ~/.dotfiles/.background 
 
 #exec wal -i ~/Imágenes/GFqc1g.png -l

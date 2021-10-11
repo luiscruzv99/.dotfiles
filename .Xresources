@@ -1,6 +1,6 @@
 Uxvt*transparent: true
 URxvt*blurRadius: 20
-
+URxvt.depth: 32
 ! special
 *.foreground:   #c7ccd1
 *.background:   #1c2023

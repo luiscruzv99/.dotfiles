@@ -45,14 +45,14 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=11;1
-font-1 = unifont:fontformat=truetype:size=11:antialias=false;0
+font-1 = unifont:size=11:antialias=false;0
 font-2 = siji:pixelsize=16;1
 font-3 = Font Awesome 5 Free Solid: pixelsize=12,1
 font-4 = Font Awesome 5 Brands Regular: pixelsize=12,1
 modules-left = i3
 tray-position = center
 
-modules-right = filesystem pulseaudio temperature date powermenu 
+modules-right = filesystem pulseaudio temperature battery wlan date powermenu 
 separator = "|"
 separator-padding = 2
 separator-foreground = ${colors.foreground-alt}
@@ -206,7 +206,7 @@ interface = wlo1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline =${colors.alert} 
 label-connected = 
 
 format-disconnected =
@@ -313,10 +313,10 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT1
 adapter = ADP1
-full-at = 79
+full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.alert}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
