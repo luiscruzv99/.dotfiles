@@ -1,0 +1,11 @@
+"xbacklight -inc 5" 
+		XF86MonBrightnessUp
+"xbacklight -dec 5"
+		XF86MonBrightnessDown
+
+"pavol-dunst -v +5"
+		XF86AudioRaiseVolume
+"pavol-dunst -v -5"
+		XF86AudioLowerVolume
+"pavol-dunst -m toggle"
+		XF86AudioMute
