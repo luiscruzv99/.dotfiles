@@ -1,6 +1,17 @@
 #!/bin/bash
 
-trizen -Syu alacritty discord dunst hsetroot htop lapce ly nvidia min nerd-fonts-complete pfetch picom-ibhagwan-git rofi spacefm ttf-font-awesome vscodium ncpamixer wget xorg-fonts-util xorg-fonts-100dpi xorgs-fonts-75dpi xorg-fonts-encondings xorg-iceauth xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel xorg-setxkbmap xorg-x11perf xorg-xauth xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo xorg-xev xorg-gamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbutils xorg-xutils xorg-xkiil xorg-xlsclients xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo
+trizen -Syu xorg-fonts-util xorg-fonts-100dpi xorgs-fonts-75dpi xorg-fonts-encondings\
+		xorg-iceauth xorg-mkfontscale xorg-server xorg-server-common xorg-server-devel\
+		xorg-setxkbmap xorg-x11perf xorg-xauth xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo\
+		xorg-xev xorg-gamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbutils\
+		xorg-xutils xorg-xkiil xorg-xlsclients xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb\
+		xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xbindkeys wget networkmanager wpa_supplicant
+
+trizen -Syu alacritty dunst hsetroot htop ly nvidia starship waterfox-g-bin ranger networkmanager-dmenu-git\
+		pfetch picom-ibhagwan-git rofi ttf-font-awesome ncpamixer ttf-iosevka-lyte-nerd-font nautilus\
+		dmenu nautilus python-pip nodejs npm yarn pyenv neovim ripgrep
+
+trizen -Syu vscodium
 
 git clone https://github.com/catppuccin/rofi.git
 cd rofi/basic
@@ -20,9 +31,17 @@ cd pavol-dunst/src
 make && sudo make install
 cd ../..
 
-ln -s ~/.dotfiles/config/nvim ~/.config/nvim
-ln -s ~/.dotfiles/config/dunst ~/.config/dunst
+
+
+sudo systemctl enable ly
+sudo systemctl enable NetworkManager.service
+
+ln -s ~/.dotfiles/config ~/.config
 
 ln -s ~/.dotfiles/.xinitrc ~/.xinitrc
-ln -s ~/.dotfiles/.xbindkeys ~/.xbindkeys
-ln -s ~/.dotfiles/.bash_profile ~/.bash_profiles
+ln -s ~/.dotfiles/.xbindkeysrc ~/.xbindkeysrc
+ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
