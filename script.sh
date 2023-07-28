@@ -5,7 +5,8 @@ trizen -Syu xorg-fonts-util xorg-fonts-100dpi xorgs-fonts-75dpi xorg-fonts-encon
 		xorg-setxkbmap xorg-x11perf xorg-xauth xorg-xcursorgen xorg-xdpyinfo xorg-xdriinfo\
 		xorg-xev xorg-gamma xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xkbutils\
 		xorg-xutils xorg-xkiil xorg-xlsclients xorg-xmodmap xorg-xprop xorg-xrandr xorg-xrdb\
-		xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xbindkeys wget networkmanager wpa_supplicant
+		xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xbindkeys wget networkmanager wpa_supplicant\
+        xdg-utils
 
 trizen -Syu alacritty dunst hsetroot htop ly nvidia starship waterfox-g-bin ranger networkmanager-dmenu-git\
 		pfetch picom-ibhagwan-git rofi ttf-font-awesome ncpamixer ttf-iosevka-lyte-nerd-font nautilus\
