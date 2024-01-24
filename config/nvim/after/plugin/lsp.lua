@@ -20,4 +20,13 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
 })
 
+lsp.format_on_save({
+    format_opts={
+        async = false,
+        timeout = 10000,
+    },
+    servers = {
+        ['jedi_language_server'] = {'python'}
+    }
+})
 lsp.setup()

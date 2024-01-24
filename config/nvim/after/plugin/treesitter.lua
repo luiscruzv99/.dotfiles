@@ -19,3 +19,8 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+context = require('treesitter-context')
+
+context.setup({enable=true})
+

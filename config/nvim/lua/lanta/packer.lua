@@ -1,6 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use 'nvim-tree/nvim-web-devicons'
     use 'wbthomason/packer.nvim'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
@@ -48,4 +49,5 @@ requires = { { 'hoob3rt/lualine.nvim', opt=true },
         },
     }
 
+    use {'nvim-treesitter/nvim-treesitter-context'}
 end)

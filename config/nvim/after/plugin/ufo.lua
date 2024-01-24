@@ -1,5 +1,7 @@
 local ufo = require('ufo')
 
+require('nvim-web-devicons').setup()
+
 local handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}
     local suffix = (' 󰁂 %d '):format(endLnum - lnum)

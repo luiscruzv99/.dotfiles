@@ -9,6 +9,7 @@ tab.setup{
         component_separators = {'', ''},
         show_tabs_always = false,
         show_devicons = true,
+        show_filename_only = true,
     }
 }
 
