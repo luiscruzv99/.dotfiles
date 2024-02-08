@@ -1,5 +1,5 @@
 local lsp = require("lsp-zero")
-require('lspconfig').denols.setup{}
+--require('lspconfig').denols.setup{}
 
 
 lsp.preset('recommended')

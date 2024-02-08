@@ -16,25 +16,24 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
-            'williamboman/mason.nvim',
-            run = function()
-                pcall(vim.api.nvim_command, 'MasonUpdate')
-            end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            {'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.api.nvim_command, 'MasonUpdate')
+                end,
+            },
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
     }
-}
 
-use {'kdheepak/tabline.nvim',
-requires = { { 'hoob3rt/lualine.nvim', opt=true },
-{'kyazdani42/nvim-web-devicons', opt = true} }
-    }
+    use {'kdheepak/tabline.nvim',
+        requires = { { 'hoob3rt/lualine.nvim', opt=true },
+                     {'kyazdani42/nvim-web-devicons', opt = true} }
+                    }
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -50,4 +49,18 @@ requires = { { 'hoob3rt/lualine.nvim', opt=true },
     }
 
     use {'nvim-treesitter/nvim-treesitter-context'}
+
+    use {'folke/todo-comments.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use {'akinsho/toggleterm.nvim'}
+    use {
+        'jedrzejboczar/toggletasks.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'akinsho/toggleterm.nvim',
+            'nvim-telescope/telescope.nvim/',
+        },
+        -- To enable YAML config support
+        rocks = 'lyaml',
+    }
+
 end)

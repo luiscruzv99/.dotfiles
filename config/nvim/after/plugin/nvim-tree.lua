@@ -12,7 +12,7 @@ local function my_on_attach(bufnr)
 
     -- custom mappings
     vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-    vim.keymap.set('n', '<Leader>pv',     api.tree.toggle)
+    vim.keymap.set('n', '<Leader>sf',     api.tree.toggle)
     vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
 end
 
