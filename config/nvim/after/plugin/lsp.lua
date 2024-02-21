@@ -4,7 +4,7 @@ local lsp = require("lsp-zero")
 
 lsp.preset('recommended')
 lsp.ensure_installed({
-	"jedi_language_server",
+	"pylsp",
 	"tsserver",
 	"eslint",
 	"lua_ls"
@@ -26,7 +26,7 @@ lsp.format_on_save({
         timeout = 10000,
     },
     servers = {
-        ['jedi_language_server'] = {'python'}
+        ['pylsp'] = {'python'}
     }
 })
 lsp.setup()
